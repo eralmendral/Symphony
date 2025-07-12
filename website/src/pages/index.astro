@@ -1,0 +1,134 @@
+---
+// Astro component script
+const title = "Symphony Website";
+const message = "Hello World from Astro!";
+---
+
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="viewport" content="width=device-width" />
+		<meta name="generator" content={Astro.generator} />
+		<title>{title}</title>
+	</head>
+	<body>
+		<main>
+			<div class="container">
+				<h1>{title}</h1>
+				<p class="message">{message}</p>
+				
+				<div class="card">
+					<h2>Welcome to Symphony Website!</h2>
+					<p>This is a simple Astro website boilerplate.</p>
+					<p>Built with modern web technologies for fast, static sites.</p>
+				</div>
+
+				<div class="features">
+					<div class="feature">
+						<h3>🚀 Fast</h3>
+						<p>Lightning-fast static site generation</p>
+					</div>
+					<div class="feature">
+						<h3>⚡ Modern</h3>
+						<p>Built with cutting-edge web technologies</p>
+					</div>
+					<div class="feature">
+						<h3>🎨 Beautiful</h3>
+						<p>Clean, responsive design</p>
+					</div>
+				</div>
+			</div>
+		</main>
+	</body>
+</html>
+
+<style>
+	:root {
+		--accent: 136, 58, 234;
+		--accent-light: 224, 204, 250;
+		--accent-dark: 49, 10, 101;
+		--accent-gradient: linear-gradient(45deg, rgb(var(--accent)), rgb(var(--accent-light)) 30%, white 60%);
+	}
+	
+	html {
+		font-family: system-ui, sans-serif;
+		background: #13151a;
+		background-size: 224px;
+	}
+	
+	body {
+		margin: 0;
+		padding: 0;
+		color: #fff;
+	}
+	
+	.container {
+		max-width: 800px;
+		margin: 0 auto;
+		padding: 2rem;
+		text-align: center;
+	}
+	
+	h1 {
+		font-size: 3rem;
+		font-weight: 700;
+		line-height: 1;
+		margin-bottom: 1rem;
+		background: var(--accent-gradient);
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
+		background-size: 400%;
+		background-position: 0%;
+	}
+	
+	.message {
+		font-size: 1.5rem;
+		color: #a8a8a8;
+		margin-bottom: 2rem;
+	}
+	
+	.card {
+		background: rgba(255, 255, 255, 0.1);
+		border-radius: 16px;
+		padding: 2rem;
+		margin: 2rem 0;
+		backdrop-filter: blur(10px);
+		border: 1px solid rgba(255, 255, 255, 0.2);
+	}
+	
+	.card h2 {
+		color: #fff;
+		margin-bottom: 1rem;
+	}
+	
+	.card p {
+		color: #ccc;
+		line-height: 1.6;
+	}
+	
+	.features {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+		gap: 2rem;
+		margin-top: 3rem;
+	}
+	
+	.feature {
+		background: rgba(255, 255, 255, 0.05);
+		border-radius: 12px;
+		padding: 1.5rem;
+		border: 1px solid rgba(255, 255, 255, 0.1);
+	}
+	
+	.feature h3 {
+		color: #fff;
+		margin-bottom: 0.5rem;
+		font-size: 1.2rem;
+	}
+	
+	.feature p {
+		color: #aaa;
+		font-size: 0.9rem;
+	}
+</style> 
