@@ -1,184 +1,154 @@
-# Symphony - Complete Web Application Boilerplate Package
+# The one that will probably replace me, in a press of a button
 
-A comprehensive collection of boilerplate projects for building complete web applications across multiple platforms and technologies.
+Symphony is a complete application boilerplate and delivery workspace. It includes starter apps for backend, web, website, mobile, and desktop development, plus engineering skills and automation playbooks for managing work from idea intake through release.
 
-## 🎯 Overview
+## Project Structure
 
-Symphony provides ready-to-use boilerplates for all major platforms and technologies, each with a simple "Hello World" implementation to get you started quickly. All projects follow modern best practices and include Docker support.
-
-## 📁 Project Structure
-
-```
+```text
 Symphony/
-├── server/          # Go server boilerplate
-├── webapp/          # Angular web application
-├── website/         # Astro static website
-├── ios/             # iOS app (Swift/SwiftUI)
-├── android/         # Android app (Kotlin/Jetpack Compose)
-├── desktop/         # Desktop app (Tauri/Vue.js)
-└── README.md        # This file
+|-- server/          # Go HTTP API boilerplate
+|-- webapp/          # Angular web application
+|-- website/         # Astro static website
+|-- ios/             # SwiftUI iOS app
+|-- android/         # Kotlin / Jetpack Compose Android app
+|-- desktop/         # Tauri / Vue desktop app
+|-- skills/          # Codex-style engineering skills
+|-- automation/      # SDLC, Agile, Jira, GitHub, CI/CD, and AI tool playbooks
+`-- README.md
 ```
 
-## 🚀 Quick Start
+## Quick Start
 
-Each boilerplate can be used independently. Navigate to any folder and follow its specific README for detailed instructions.
+Each app can be used independently.
 
-### Server (Go)
+### Server
+
 ```bash
 cd server
 go run main.go
-# Server runs on http://localhost:8080
 ```
 
-### Web Application (Angular)
+Runs on `http://localhost:8080`.
+
+### Web App
+
 ```bash
 cd webapp
 npm install
 npm start
-# App runs on http://localhost:4200
 ```
 
-### Website (Astro)
+Runs on `http://localhost:4200`.
+
+### Website
+
 ```bash
 cd website
 npm install
 npm run dev
-# Site runs on http://localhost:4321
 ```
 
-### iOS App (Swift)
-```bash
-cd ios
-# Open SymphonyApp.xcodeproj in Xcode
-# Build and run on simulator or device
-```
+Runs on `http://localhost:4321`.
 
-### Android App (Kotlin)
-```bash
-cd android
-# Open in Android Studio
-# Build and run on emulator or device
-```
+### Desktop
 
-### Desktop App (Tauri)
 ```bash
 cd desktop
 npm install
 npm run tauri dev
-# App runs with hot reload
 ```
 
-## 🐳 Docker Support
+Uses Tauri, Vue, Vite, and Rust.
 
-All projects include Dockerfiles for containerized development and deployment:
+### iOS
 
 ```bash
-# Build any project
-docker build -t symphony-[project-name] ./[project-name]
-
-# Run containers
-docker run -p 8080:8080 symphony-server
-docker run -p 80:80 symphony-webapp
-docker run -p 80:80 symphony-website
+cd ios
+open SymphonyApp.xcodeproj
 ```
 
-## 🛠 Technology Stack
+Build and run from Xcode.
 
-### Backend
-- **Go Server**: Fast, lightweight HTTP server with JSON API
-- **Rust (Tauri)**: High-performance desktop app backend
+### Android
 
-### Frontend
-- **Angular 17**: Full-featured web application framework
-- **Vue.js 3**: Progressive JavaScript framework for desktop
-- **Astro**: Static site generator with modern tooling
+```bash
+cd android
+./gradlew assembleDebug
+```
 
-### Mobile
-- **Swift/SwiftUI**: Native iOS development
-- **Kotlin/Jetpack Compose**: Modern Android development
+Open the `android/` folder in Android Studio for normal development.
 
-### Desktop
-- **Tauri**: Cross-platform desktop framework
-- **Vue.js**: Frontend framework with Composition API
+## Engineering Skills
 
-## 🎨 Design Features
+The `skills/` directory contains Codex-style `SKILL.md` files that guide AI-assisted engineering work:
 
-All projects include:
-- ✅ Modern, responsive design
-- ✅ Dark mode support (where applicable)
-- ✅ Smooth animations and transitions
-- ✅ Accessibility considerations
-- ✅ Mobile-first approach
-- ✅ Clean, maintainable code structure
+- `software-development`
+- `conventional-commits`
+- `code-review`
+- `testing-quality`
+- `security-review`
+- `ci-cd-release`
+- `agile-delivery`
+- `jira-workflow`
+- `technical-documentation`
+- `frontend-ui-ux`
+- `backend-api`
+- `devops-operations`
+- `ai-tools-selection`
 
-## 📱 Platform Support
+Use these skills to standardize how agents plan, implement, review, test, document, and release work.
 
-| Platform | Technology | Status | Port |
-|----------|------------|--------|------|
-| Server | Go | ✅ Ready | 8080 |
-| Web App | Angular | ✅ Ready | 4200 |
-| Website | Astro | ✅ Ready | 4321 |
-| iOS | Swift/SwiftUI | ✅ Ready | - |
-| Android | Kotlin/Compose | ✅ Ready | - |
-| Desktop | Tauri/Vue.js | ✅ Ready | 1420 |
+## Automation
 
-## 🔧 Development Workflow
+The `automation/` directory is the delivery system for the whole project:
 
-### 1. Choose Your Stack
-Select the appropriate boilerplate based on your requirements:
-- **Full-stack web app**: Use `server` + `webapp`
-- **Static website**: Use `website`
-- **Mobile app**: Use `ios` or `android`
-- **Desktop app**: Use `desktop`
+- [SDLC](./automation/sdlc.md)
+- [Agile](./automation/agile.md)
+- [Jira](./automation/jira.md)
+- [GitHub workflow](./automation/github.md)
+- [CI/CD](./automation/ci-cd.md)
+- [Commit conventions](./automation/commit-conventions.md)
+- [AI tools review](./automation/ai-tools.md)
+- [GitHub learning resources](./automation/github-resources.md)
+- [Templates](./automation/templates/)
 
-### 2. Customize
-Each project includes:
-- Configuration files
-- Environment variables
-- Build scripts
-- Development tools
+It covers intake, discovery, sprint planning, story points, Jira issue structure, GitHub branch and PR flow, code review, CI/CD gates, releases, incidents, retrospectives, and AI tool selection.
 
-### 3. Deploy
-All projects support:
-- Docker containers
-- CI/CD pipelines
-- Platform-specific deployment
+## Recommended Workflow
 
-## 📚 Documentation
+1. Capture the idea or bug in Jira using an automation template.
+2. Refine the issue with acceptance criteria and story points.
+3. Create a GitHub branch linked to the issue.
+4. Build the change in the relevant app directory.
+5. Use the skills for implementation, testing, review, security, docs, and release checks.
+6. Open a pull request with verification notes.
+7. Merge only after review and required checks pass.
+8. Release with the checklist in `automation/templates/release-checklist.md`.
+9. Track follow-ups, incidents, and retrospectives in `automation/`.
 
-Each project includes comprehensive documentation:
-- Setup instructions
-- Development guidelines
-- Deployment procedures
-- Troubleshooting guides
+## Docker Support
 
-## 🤝 Contributing
+The app directories include Dockerfiles where useful:
 
-This is a boilerplate package designed to be customized for your specific needs. Feel free to:
-- Modify configurations
-- Add new features
-- Update dependencies
-- Improve documentation
+```bash
+docker build -t symphony-server ./server
+docker build -t symphony-webapp ./webapp
+docker build -t symphony-website ./website
+```
 
-## 📄 License
+Mobile and desktop Docker support is limited by platform-specific build requirements.
 
-This project is provided as-is for educational and development purposes. Each technology stack may have its own licensing requirements.
+## Learning Resources
 
-## 🆘 Support
+Start with:
 
-For issues specific to each technology:
-- **Go**: [Official Documentation](https://golang.org/doc/)
-- **Angular**: [Angular.io](https://angular.io/)
-- **Astro**: [Astro.build](https://astro.build/)
-- **Swift**: [Apple Developer](https://developer.apple.com/)
-- **Kotlin**: [Kotlinlang.org](https://kotlinlang.org/)
-- **Tauri**: [Tauri.app](https://tauri.app/)
+- [GitHub Resources](./automation/github-resources.md)
+- [AI Tools Review](./automation/ai-tools.md)
+- [Jira Workflow](./automation/jira.md)
+- [Agile Delivery](./automation/agile.md)
 
-## 🎉 Getting Started
+The AI tool recommendations are dated and should be reviewed before purchase, rollout, or policy changes.
 
-1. **Clone this repository**
-2. **Navigate to your desired boilerplate**
-3. **Follow the project-specific README**
-4. **Start building your application!**
+## Status
 
-Each boilerplate is production-ready and follows industry best practices. Happy coding! 🚀
+This repository is a boilerplate and process workspace. The apps are intentionally minimal, and the automation layer is documentation-first until executable CI/CD or Jira API integration is explicitly added.

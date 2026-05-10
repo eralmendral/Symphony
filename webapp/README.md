@@ -1,65 +1,68 @@
-# Symphony Angular WebApp Boilerplate
+# Symphony Angular Web App
 
-A simple Angular web application boilerplate with Hello World functionality.
-
-## Features
-
-- Angular 17 with standalone components
-- TypeScript support
-- Modern build system
-- Docker support with nginx
-- Responsive design
+Angular 17 web application boilerplate for Symphony.
 
 ## Prerequisites
 
-- Node.js 18+ 
-- npm or yarn
+- Node.js 18 or newer.
+- npm.
 
 ## Quick Start
 
-### Local Development
-
 ```bash
-# Install dependencies
 npm install
-
-# Start development server
 npm start
-
-# Build for production
-npm run build
 ```
 
-### Using Docker
+The app runs on `http://localhost:4200`.
+
+## Scripts
 
 ```bash
-# Build the Docker image
-docker build -t symphony-webapp .
-
-# Run the container
-docker run -p 80:80 symphony-webapp
+npm start       # Start the Angular dev server
+npm run build   # Build for production
+npm run watch   # Build in watch mode for development
+npm test        # Run Karma/Jasmine tests
 ```
-
-## Development
-
-The application will be available at `http://localhost:4200` in development mode.
 
 ## Project Structure
 
-```
-src/
-├── app/
-│   ├── app.component.ts    # Main component
-│   ├── app.config.ts       # App configuration
-│   └── app.routes.ts       # Routing configuration
-├── index.html              # Entry HTML file
-├── main.ts                 # Application entry point
-└── styles.css              # Global styles
+```text
+webapp/
+|-- src/
+|   |-- app/
+|   |   |-- app.component.ts
+|   |   |-- app.config.ts
+|   |   `-- app.routes.ts
+|   |-- index.html
+|   |-- main.ts
+|   `-- styles.css
+|-- angular.json
+|-- package.json
+|-- tsconfig.json
+|-- Dockerfile
+`-- nginx.conf
 ```
 
-## Available Scripts
+## Development Notes
 
-- `npm start` - Start development server
-- `npm run build` - Build for production
-- `npm run test` - Run unit tests
-- `npm run watch` - Build and watch for changes 
+- Keep UI behavior in Angular components and routes.
+- Keep shared styling in `src/styles.css` unless a component-specific style is needed.
+- Add tests for user-visible behavior, routing changes, forms, and data transformations.
+- Use the top-level `skills/frontend-ui-ux` and `skills/testing-quality` guidance for larger UI changes.
+
+## Docker
+
+```bash
+docker build -t symphony-webapp .
+docker run -p 80:80 symphony-webapp
+```
+
+## Verification
+
+Before opening a pull request for webapp changes, run:
+
+```bash
+npm test
+npm run build
+```
