@@ -1,0 +1,1401 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Eric Frank Almendral - CV</title>
+  <style>
+    @font-face {
+      font-family: "Ubuntu";
+      src: url("assets/ubuntu-regular.ttf") format("truetype");
+      font-weight: 400;
+      font-style: normal;
+    }
+
+    @font-face {
+      font-family: "Ubuntu";
+      src: url("assets/ubuntu-bold.ttf") format("truetype");
+      font-weight: 700;
+      font-style: normal;
+    }
+
+    @font-face {
+      font-family: "Ubuntu";
+      src: url("assets/ubuntu-italic.ttf") format("truetype");
+      font-weight: 400;
+      font-style: italic;
+    }
+
+    :root {
+      --ink: #29323a;
+      --accent: #bd965c;
+      --text: #101214;
+      --muted: #787d81;
+      --tag: #878b8f;
+      --paper: #ffffff;
+      --pattern: #d9dde0;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      background: #eef0f2;
+      color: var(--text);
+      font-family: "Ubuntu", Arial, sans-serif;
+      font-size: 12px;
+      line-height: 1.22;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .sheet {
+      position: relative;
+      width: 210mm;
+      min-height: 297mm;
+      margin: 24px auto;
+      padding: 11mm 9mm 8mm;
+      overflow: hidden;
+      background: var(--paper);
+      box-shadow: 0 16px 45px rgba(19, 28, 35, 0.14);
+      print-color-adjust: exact;
+      -webkit-print-color-adjust: exact;
+    }
+
+    .sheet::before,
+    .sheet::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      right: 0;
+      height: 230px;
+      pointer-events: none;
+      opacity: 0.46;
+      background:
+        radial-gradient(circle at 18% 18%, var(--pattern) 0 3px, transparent 4px),
+        radial-gradient(circle at 35% 34%, var(--pattern) 0 3px, transparent 4px),
+        radial-gradient(circle at 47% 8%, var(--pattern) 0 3px, transparent 4px),
+        radial-gradient(circle at 61% 42%, var(--pattern) 0 3px, transparent 4px),
+        linear-gradient(90deg, transparent 0 118px, rgba(217, 221, 224, 0.42) 118px 120px, transparent 120px),
+        linear-gradient(0deg, transparent 0 78px, rgba(217, 221, 224, 0.34) 78px 80px, transparent 80px);
+      background-size: 240px 170px, 240px 170px, 260px 180px, 270px 190px, 180px 110px, 190px 125px;
+      z-index: 0;
+    }
+
+    .sheet::before {
+      top: -30px;
+    }
+
+    .sheet::after {
+      bottom: -55px;
+      transform: rotate(180deg);
+    }
+
+    .content {
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero {
+      display: grid;
+      grid-template-columns: 130px 1fr 270px;
+      column-gap: 22px;
+      align-items: start;
+      margin-bottom: 28px;
+    }
+
+    .avatar {
+      width: 128px;
+      height: 128px;
+      margin-top: 12px;
+      border: 3px solid var(--ink);
+      border-radius: 50%;
+      object-fit: cover;
+    }
+
+    .identity {
+      padding-top: 16px;
+    }
+
+    .identity h1 {
+      margin: 0 0 7px;
+      color: var(--ink);
+      font-size: 33px;
+      line-height: 0.96;
+      font-weight: 700;
+      letter-spacing: 0;
+    }
+
+    .role {
+      margin: 0 0 11px;
+      color: var(--accent);
+      font-size: 16px;
+      font-weight: 700;
+    }
+
+    .summary {
+      max-width: 320px;
+      margin: 0;
+      font-size: 12.1px;
+      font-weight: 700;
+      line-height: 1.12;
+    }
+
+    .contact-card {
+      min-height: 258px;
+      padding: 18px 17px 15px;
+      border-radius: 6px;
+      background: var(--ink);
+      color: #ffffff;
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      min-height: 30px;
+      margin-bottom: 15px;
+      font-size: 11.5px;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    .contact-item:last-child {
+      margin-bottom: 0;
+    }
+
+    .contact-icon {
+      display: grid;
+      flex: 0 0 28px;
+      width: 28px;
+      height: 28px;
+      place-items: center;
+      border-radius: 6px;
+      background: #ffffff;
+      color: var(--ink);
+      font-size: 8.8px;
+      font-weight: 700;
+      text-transform: uppercase;
+    }
+
+    .section {
+      margin-top: 24px;
+    }
+
+    .section.compact {
+      margin-top: 18px;
+    }
+
+    .section-heading {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 14px;
+      align-items: center;
+      margin-bottom: 12px;
+    }
+
+    .section-icon {
+      position: relative;
+      display: grid;
+      width: 38px;
+      height: 34px;
+      place-items: center;
+      border-radius: 8px;
+      background: var(--ink);
+      color: #ffffff;
+      font-size: 10px;
+      font-weight: 700;
+      line-height: 1;
+    }
+
+    .section-icon::before,
+    .section-icon::after {
+      content: "";
+      position: absolute;
+      top: 6px;
+      width: 6px;
+      height: 22px;
+      border-radius: 6px 0 0 6px;
+      background: var(--accent);
+    }
+
+    .section-icon::before {
+      left: -15px;
+      opacity: 0.68;
+    }
+
+    .section-icon::after {
+      left: -8px;
+    }
+
+    .section-line {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 24px;
+      align-items: center;
+    }
+
+    .section-title {
+      color: var(--ink);
+      font-size: 20px;
+      font-weight: 700;
+      letter-spacing: 0.8px;
+      white-space: nowrap;
+    }
+
+    .rule {
+      display: grid;
+      grid-template-columns: 1fr 0.92fr 1fr;
+      gap: 12px;
+      align-items: center;
+    }
+
+    .rule span {
+      display: block;
+      height: 4px;
+      border-radius: 4px;
+      background: var(--accent);
+    }
+
+    .rule span:nth-child(2) {
+      background: var(--ink);
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px 8px;
+      margin-top: 5px;
+    }
+
+    .tag {
+      padding: 4px 8px;
+      border-radius: 3px;
+      background: var(--tag);
+      color: #ffffff;
+      font-size: 10px;
+      font-weight: 700;
+      line-height: 1;
+    }
+
+    .entry {
+      position: relative;
+      margin-bottom: 18px;
+    }
+
+    .entry.tight {
+      margin-bottom: 13px;
+    }
+
+    .entry h3 {
+      margin: 0 0 1px;
+      font-size: 18px;
+      line-height: 1.05;
+      font-weight: 700;
+    }
+
+    .entry .company {
+      margin: 0 0 7px;
+      font-size: 17px;
+      line-height: 1.02;
+    }
+
+    .entry-meta {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 12px;
+      align-items: start;
+      margin-bottom: 1px;
+    }
+
+    .date,
+    .place,
+    .small-link,
+    .subhead {
+      font-style: italic;
+    }
+
+    .date,
+    .place {
+      color: var(--accent);
+      font-size: 11.5px;
+    }
+
+    .place {
+      text-align: right;
+      white-space: nowrap;
+    }
+
+    .small-link {
+      display: block;
+      margin-bottom: 6px;
+      color: var(--muted);
+      font-size: 11px;
+      line-height: 1.08;
+    }
+
+    .subhead {
+      margin: 3px 0 2px;
+      color: var(--accent);
+      font-size: 11px;
+      font-weight: 700;
+    }
+
+    .bullets {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .bullets li {
+      position: relative;
+      margin: 5px 0;
+      padding-left: 18px;
+      font-size: 12.2px;
+      font-weight: 700;
+      line-height: 1.2;
+    }
+
+    .bullets li::before {
+      content: "";
+      position: absolute;
+      top: 4px;
+      left: 0;
+      width: 8px;
+      height: 8px;
+      border-radius: 2px;
+      background: var(--accent);
+    }
+
+    .page-number {
+      position: absolute;
+      right: 28px;
+      bottom: 18px;
+      z-index: 2;
+      color: #575d62;
+      font-size: 10px;
+      font-style: italic;
+    }
+
+    .page-two .section:first-child,
+    .page-three .section:first-child {
+      margin-top: 0;
+    }
+
+    .tech-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      column-gap: 52px;
+      row-gap: 14px;
+      margin-top: 13px;
+    }
+
+    .tech-row {
+      display: grid;
+      grid-template-columns: 118px 1fr;
+      gap: 13px;
+      align-items: start;
+    }
+
+    .tech-row strong {
+      font-size: 11.7px;
+      line-height: 1.12;
+    }
+
+    .tech-row span {
+      font-size: 11px;
+      font-weight: 700;
+      line-height: 1.1;
+    }
+
+    .education h3,
+    .teaching h3 {
+      margin: 0 0 3px;
+      font-size: 18px;
+      line-height: 1.08;
+      font-weight: 700;
+    }
+
+    .education .school,
+    .teaching .school {
+      margin: 0 0 8px;
+      font-size: 17px;
+      line-height: 1.05;
+    }
+
+    .project {
+      margin-bottom: 10px;
+    }
+
+    .project h3 {
+      margin: 0 0 3px;
+      font-size: 12.9px;
+      line-height: 1.1;
+      font-weight: 700;
+    }
+
+    .project .project-date {
+      font-weight: 700;
+    }
+
+    .project .bullets li {
+      margin: 2px 0;
+      font-size: 10.5px;
+      line-height: 1.08;
+    }
+
+    .project .bullets li::before {
+      top: 3px;
+      width: 6px;
+      height: 6px;
+    }
+
+    .nested-bullets {
+      margin-top: 5px;
+      margin-left: 2px;
+    }
+
+    .nested-bullets li {
+      font-size: 95%;
+    }
+
+    .cert-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 44px;
+      margin-top: 6px;
+    }
+
+    .certificate h3 {
+      margin: 0;
+      font-size: 15px;
+      line-height: 1.05;
+      font-weight: 700;
+    }
+
+    .certificate .date {
+      display: block;
+      color: #000000;
+      font-size: 15px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: 1.05;
+    }
+
+    .certificate .small-link {
+      margin-top: 3px;
+      font-size: 11.5px;
+      font-weight: 700;
+    }
+
+    .editor-toolbar {
+      position: fixed;
+      top: 14px;
+      left: 50%;
+      z-index: 20;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      max-width: calc(100vw - 28px);
+      padding: 8px;
+      border: 1px solid rgba(41, 50, 58, 0.14);
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.96);
+      box-shadow: 0 10px 30px rgba(19, 28, 35, 0.16);
+      transform: translateX(-50%);
+    }
+
+    body.editor-ready {
+      padding-top: 68px;
+    }
+
+    .editor-toolbar button,
+    .editor-toolbar label,
+    .editor-add,
+    .editor-mini {
+      border: 1px solid rgba(41, 50, 58, 0.18);
+      border-radius: 6px;
+      background: #ffffff;
+      color: var(--ink);
+      cursor: pointer;
+      font: 700 11px/1 "Ubuntu", Arial, sans-serif;
+      letter-spacing: 0;
+    }
+
+    .editor-toolbar button,
+    .editor-toolbar label {
+      padding: 8px 10px;
+      white-space: nowrap;
+    }
+
+    .editor-toolbar button.primary {
+      background: var(--ink);
+      color: #ffffff;
+    }
+
+    .editor-toolbar button.danger {
+      color: #9e2f22;
+    }
+
+    .editor-status {
+      min-width: 118px;
+      color: var(--muted);
+      font-size: 11px;
+      white-space: nowrap;
+    }
+
+    body.editing [contenteditable="true"] {
+      border-radius: 3px;
+      outline: 1px dashed rgba(189, 150, 92, 0.65);
+      outline-offset: 2px;
+      cursor: text;
+    }
+
+    body.editing [contenteditable="true"]:focus {
+      outline: 2px solid rgba(41, 50, 58, 0.75);
+      background: rgba(255, 255, 255, 0.76);
+    }
+
+    .section,
+    .section-heading,
+    .contact-card,
+    .contact-item,
+    .tag,
+    .bullets,
+    .bullets li,
+    .tech-row,
+    .project,
+    .certificate {
+      position: relative;
+    }
+
+    .editor-actions,
+    .editor-row-actions {
+      position: absolute;
+      z-index: 5;
+      display: none;
+      gap: 4px;
+      align-items: center;
+    }
+
+    .editor-actions {
+      top: -11px;
+      right: 0;
+    }
+
+    .editor-row-actions {
+      top: -9px;
+      right: -4px;
+    }
+
+    body.editing .editor-actions,
+    body.editing .editor-row-actions {
+      display: flex;
+    }
+
+    .editor-add {
+      display: none;
+      margin-top: 7px;
+      padding: 6px 8px;
+      background: rgba(255, 255, 255, 0.92);
+    }
+
+    body.editing .editor-add {
+      display: inline-flex;
+    }
+
+    .editor-mini {
+      width: 22px;
+      height: 22px;
+      padding: 0;
+      background: rgba(255, 255, 255, 0.96);
+    }
+
+    .editor-mini.wide {
+      width: auto;
+      padding: 0 6px;
+    }
+
+    .editor-mini.danger {
+      color: #9e2f22;
+    }
+
+    .editor-hint {
+      display: none;
+      margin: 0 auto 12px;
+      width: 210mm;
+      max-width: calc(100% - 48px);
+      color: var(--muted);
+      font-size: 11px;
+      text-align: center;
+    }
+
+    body.editing .editor-hint {
+      display: block;
+    }
+
+    @page {
+      size: A4;
+      margin: 0;
+    }
+
+    @media print {
+      body {
+        background: #ffffff;
+        padding-top: 0;
+      }
+
+      .editor-toolbar,
+      .editor-hint,
+      [data-editor-control] {
+        display: none !important;
+      }
+
+      .sheet {
+        width: 210mm;
+        min-height: 297mm;
+        margin: 0;
+        box-shadow: none;
+        page-break-after: always;
+      }
+    }
+
+    @media (max-width: 850px) {
+      body {
+        background: #ffffff;
+      }
+
+      .sheet {
+        width: 100%;
+        min-height: auto;
+        margin: 0;
+        padding: 24px;
+        box-shadow: none;
+      }
+
+      .hero,
+      .tech-grid,
+      .cert-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .contact-card {
+        width: 100%;
+      }
+
+      .section-line {
+        grid-template-columns: 1fr;
+        gap: 8px;
+      }
+
+      .rule {
+        grid-template-columns: 1fr 1fr 1fr;
+      }
+
+      .entry-meta {
+        grid-template-columns: 1fr;
+      }
+
+      .place {
+        text-align: left;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="editor-toolbar" data-editor-control="shell" role="region" aria-label="CV editor controls">
+    <button class="primary" type="button" data-action="toggle-edit">Edit mode on</button>
+    <button type="button" data-action="save">Save</button>
+    <button type="button" data-action="export">Export JSON</button>
+    <label for="cv-import">Import JSON</label>
+    <input id="cv-import" type="file" accept="application/json,.json" hidden>
+    <button type="button" data-action="print">Print</button>
+    <button class="danger" type="button" data-action="reset">Reset</button>
+    <span class="editor-status" aria-live="polite">Ready</span>
+  </div>
+  <p class="editor-hint" data-editor-control="shell">Click any outlined text to edit. Double-click a link to change its URL. Click the photo to change its image path. Changes autosave in this browser.</p>
+  <main>
+    <section class="sheet page-one">
+      <div class="content">
+        <header class="hero">
+          <img class="avatar" src="assets/profile.jpg" alt="Eric Frank Almendral">
+          <div class="identity">
+            <h1>Eric Frank<br>Almendral</h1>
+            <p class="role">Software Developer / IT Consultant</p>
+            <p class="summary">Innovative IT Consultant with over 5 years of experience in programming at different companies. Skilled in developing custom software solutions to streamline operations. Ready to drive digital transformation by leveraging cutting-edge technologies. Achieved an increase in efficiency of companies' internal processes through automation projects.</p>
+          </div>
+          <address class="contact-card">
+            <a class="contact-item" href="mailto:eralmendral@protonmail.com"><span class="contact-icon">mail</span><span>eralmendral@protonmail.com</span></a>
+            <a class="contact-item" href="tel:+630971321678"><span class="contact-icon">tel</span><span>0971321678</span></a>
+            <span class="contact-item"><span class="contact-icon">pin</span><span>Baguio, Philippines</span></span>
+            <a class="contact-item" href="https://eral.me"><span class="contact-icon">web</span><span>eral.me</span></a>
+            <a class="contact-item" href="https://www.linkedin.com/in/eric-a-6a13371aa"><span class="contact-icon">in</span><span>linkedin.com/in/eric-a-6a13371aa</span></a>
+            <a class="contact-item" href="https://github.com/eralmendral1"><span class="contact-icon">git</span><span>github.com/eralmendral1</span></a>
+          </address>
+        </header>
+
+        <section class="section compact">
+          <div class="section-heading">
+            <span class="section-icon">SK</span>
+            <div class="section-line">
+              <h2 class="section-title">SKILLS</h2>
+              <div class="rule"><span></span><span></span><span></span></div>
+            </div>
+          </div>
+          <div class="tags">
+            <span class="tag">Software Development</span>
+            <span class="tag">Software Architecture</span>
+            <span class="tag">Software Engineering</span>
+            <span class="tag">UI / UX</span>
+            <span class="tag">Database Management</span>
+            <span class="tag">Server Management</span>
+            <span class="tag">Software Documentation</span>
+            <span class="tag">Software Maintenance</span>
+            <span class="tag">Software Optimization</span>
+            <span class="tag">Project Management</span>
+            <span class="tag">Programming Language-Agnostic</span>
+          </div>
+        </section>
+
+        <section class="section">
+          <div class="section-heading">
+            <span class="section-icon">BR</span>
+            <div class="section-line">
+              <h2 class="section-title">WORK EXPERIENCE</h2>
+              <div class="rule"><span></span><span></span><span></span></div>
+            </div>
+          </div>
+
+          <article class="entry">
+            <h3>Consultant</h3>
+            <p class="company">Genpact</p>
+            <div class="entry-meta">
+              <span class="date">12/2023 - Present</span>
+              <span class="place">Philippines</span>
+            </div>
+            <a class="small-link" href="https://www.genpact.com">https://www.genpact.com</a>
+            <p class="subhead">Achievements/Tasks</p>
+            <ul class="bullets">
+              <li>Deployed as a developer for Macquarie company https://www.macquarie.com.</li>
+              <li>Development of internal systems for the bank.</li>
+              <li>User Interface, Devops, Performance optimization.</li>
+              <li>Event-Driven Architecture, Micro-Services &amp; Micro-Frontends.</li>
+            </ul>
+          </article>
+
+          <article class="entry">
+            <h3>Full-Stack Developer</h3>
+            <p class="company">Justpressone Inc.</p>
+            <div class="entry-meta">
+              <span class="date">06/2021 - 05/2023</span>
+              <span class="place">California</span>
+            </div>
+            <a class="small-link" href="https://justpressone.com">https://justpressone.com</a>
+            <p class="subhead">Achievements/Tasks</p>
+            <ul class="bullets">
+              <li>Develop a new call center system for handling Voice Calls, SMS, Chats, Emails and Real-time ticketing.</li>
+              <li>Responsibilities on Backend, Frontend, Database, Server Management, Optimization, Documentations.</li>
+              <li>Twilio, PusherJS, Laravel/PHP, NodeJS are used.</li>
+              <li>Version 2 of the system was written using NodeJS to replace PusherJS with custom web sockets.</li>
+              <li>Single Sign On using Microsoft Azure Authentication API.</li>
+              <li>Azure Cloud Management.</li>
+            </ul>
+          </article>
+
+          <article class="entry tight">
+            <h3>Front-End Developer</h3>
+            <p class="company">Impactify</p>
+            <div class="entry-meta">
+              <span class="date">05/2022 - 08/2022</span>
+              <span class="place">Europe</span>
+            </div>
+            <a class="small-link" href="https://impactify.io">https://impactify.io</a>
+            <p class="subhead">Achievements/Tasks</p>
+            <ul class="bullets">
+              <li>Development of Frontend User Interface of company's version 2 internal system.</li>
+              <li>Use different UI libraries for building specific features such as authentication, datagrid tables, charts and other internal pages.</li>
+              <li>Collaborate with project manager and backend developers to develop front facing side of the system.</li>
+            </ul>
+          </article>
+        </section>
+      </div>
+      <span class="page-number">1/3</span>
+    </section>
+
+    <section class="sheet page-two">
+      <div class="content">
+        <section class="section">
+          <div class="section-heading">
+            <span class="section-icon">BR</span>
+            <div class="section-line">
+              <h2 class="section-title">WORK EXPERIENCE</h2>
+              <div class="rule"><span></span><span></span><span></span></div>
+            </div>
+          </div>
+
+          <article class="entry">
+            <h3>Back-End Developer</h3>
+            <p class="company">Pinzak Network</p>
+            <div class="entry-meta">
+              <span class="date">01/2021 - 05/2021</span>
+              <span class="place">South America</span>
+            </div>
+            <a class="small-link" href="https://www.pinzak.com">https://www.pinzak.com</a>
+            <p class="subhead">Achievements/Tasks</p>
+            <ul class="bullets">
+              <li>Developed Web API services for ecommerce site (https://www.instagram.com/latin.tienda).</li>
+              <li>User account and digital wallets for recording payments.</li>
+              <li>Contributes to the development of backend API and services with the use of PHP/Laravel and NodeJS.</li>
+              <li>Backend data paginations, filters, sorting.</li>
+            </ul>
+          </article>
+
+          <article class="entry">
+            <h3>Web Developer</h3>
+            <p class="company">Brewedlogic Inc</p>
+            <div class="entry-meta">
+              <span class="date">11/2019 - 12/2020</span>
+              <span class="place">Philippines</span>
+            </div>
+            <a class="small-link" href="https://brewedlogic.com">https://brewedlogic.com</a>
+            <p class="subhead">Achievements/Tasks</p>
+            <ul class="bullets">
+              <li>ReactJS, VueJS, AngularJS for converting UI/UX design to a functioning user interfaces.</li>
+              <li>Develop, monitor, maintain, and diagnose information systems.</li>
+              <li>Agile workflow to participate in the whole software development life cycle (design, planning, coding, testing, maintenance) in developing new products and features.</li>
+              <li>Python, Django, Nodejs, Express, NestJS, PHP/Laravel for developing backend API and services.</li>
+              <li>Git and Gitlab for the Software version control management.</li>
+            </ul>
+          </article>
+
+          <article class="entry">
+            <h3>App Developer</h3>
+            <p class="company">Haru</p>
+            <div class="entry-meta">
+              <span class="date">07/2018 - 08/2019</span>
+              <span class="place">Philippines</span>
+            </div>
+            <a class="small-link" href="https://haru-queue-ordering.vercel.app">https://haru-queue-ordering.vercel.app</a>
+            <p class="subhead">Achievements/Tasks</p>
+            <ul class="bullets">
+              <li>Develop a real-time ordering system.</li>
+              <li>Initially create a UI/UX prototype to be presented to the client using Adobe XD.</li>
+              <li>Translate user interface design into web application code using Javascript.</li>
+            </ul>
+          </article>
+
+          <article class="entry">
+            <h3>Freelance Software Developer</h3>
+            <p class="company">Freelance</p>
+            <div class="entry-meta">
+              <span class="date">01/2017 - 08/2019</span>
+              <span class="place">Philippines</span>
+            </div>
+            <a class="small-link" href="https://eral.me">eral.me</a>
+            <p class="subhead">Achievements/Tasks</p>
+            <ul class="bullets">
+              <li>Javascript and CSS as primary tool for developing Web application user interfaces.</li>
+              <li>Developing Web application backend services from the ground up.</li>
+              <li>System setup assistance (hosting, deployment, feature enhancement).</li>
+              <li>System architecture and Database design.</li>
+              <li>UI/UX Design, Prototyping using Adobe XD and Adobe Photoshop.</li>
+            </ul>
+          </article>
+
+          <article class="entry tight">
+            <h3>Contact Center Representative</h3>
+            <p class="company">Foundever (Sitel)</p>
+            <div class="entry-meta">
+              <span class="date">07/2016 - 12/2016</span>
+              <span class="place">Philippines</span>
+            </div>
+            <p class="small-link">Empowering brands through innovative CX outsourcing.</p>
+            <p class="subhead">Achievements/Tasks</p>
+            <ul class="bullets">
+              <li>Voice call support</li>
+              <li>Email support</li>
+              <li>Chat support</li>
+            </ul>
+          </article>
+        </section>
+      </div>
+      <span class="page-number">2/3</span>
+    </section>
+
+    <section class="sheet page-three">
+      <div class="content">
+        <section class="section compact">
+          <div class="section-heading">
+            <span class="section-icon">TS</span>
+            <div class="section-line">
+              <h2 class="section-title">TECHNICAL SKILLS</h2>
+              <div class="rule"><span></span><span></span><span></span></div>
+            </div>
+          </div>
+          <div class="tech-grid">
+            <div class="tech-row"><strong>Programming</strong><span>C, C++, Java, C#, Python, Go Language</span></div>
+            <div class="tech-row"><strong>Devops</strong><span>AWS, GCP, Azure, Version Control, Cloud Technologies</span></div>
+            <div class="tech-row"><strong>Frontend<br>Development</strong><span>HTML CSS, Javascript, TypeScript, React, Angular, Vue, etc.</span></div>
+            <div class="tech-row"><strong>Database</strong><span>MySQL, PostgreSQL, MongoDB, Redis, Relational databases, Non-relational databases.</span></div>
+            <div class="tech-row"><strong>Backend</strong><span>Go Language, PHP, Laravel, NodeJS, Express, Java, Serverless, Backend, Platform, Infra as a Service, etc.</span></div>
+            <div class="tech-row"><strong>Project<br>Management</strong><span>Github, Gitlab, Bitbucket, Jira, Trello, Kanban, Agile, Scrum</span></div>
+            <div class="tech-row"><strong>Best Practices</strong><span>Design Patterns, SOLID, OOP, Clean Code</span></div>
+            <div class="tech-row"><strong>Operating<br>Systems</strong><span>Windows, Mac, Linux</span></div>
+            <div class="tech-row"><strong>Graphic Design</strong><span>UI / UX, Wireframing, Color Theory, Theming, UI Prototyping</span></div>
+            <div class="tech-row"><strong>Familiarity</strong><span>Cyber Security, Ethical Hacking</span></div>
+          </div>
+        </section>
+
+        <section class="section education">
+          <div class="section-heading">
+            <span class="section-icon">ED</span>
+            <div class="section-line">
+              <h2 class="section-title">EDUCATION</h2>
+              <div class="rule"><span></span><span></span><span></span></div>
+            </div>
+          </div>
+          <h3>Bachelor of Science in Information Technology</h3>
+          <p class="school">Data Center College of the Philippines - Baguio</p>
+          <p class="date">Philippines</p>
+        </section>
+
+        <section class="section compact">
+          <div class="section-heading">
+            <span class="section-icon">PR</span>
+            <div class="section-line">
+              <h2 class="section-title">PROJECTS</h2>
+              <div class="rule"><span></span><span></span><span></span></div>
+            </div>
+          </div>
+          <article class="project">
+            <h3>My Site <span class="project-date">(09/2024 - Present)</span></h3>
+            <ul class="bullets">
+              <li>Frontend</li>
+              <li>Backend</li>
+              <li><a href="https://eral.me">https://eral.me</a></li>
+            </ul>
+          </article>
+          <article class="project">
+            <h3>Macquarie Internal Systems <span class="project-date">(01/2024 - Present)</span></h3>
+            <ul class="bullets">
+              <li>Frontend</li>
+              <li>Devops</li>
+              <li><a href="https://www.macquarie.com">https://www.macquarie.com</a></li>
+            </ul>
+          </article>
+          <article class="project">
+            <h3>JPO Nexus <span class="project-date">(06/2021 - 05/2023)</span></h3>
+            <ul class="bullets">
+              <li>Lead developer of a call center system.</li>
+              <li>Frontend, Backend, Devops, Automation Scripts, etc.</li>
+              <li>Project Management.</li>
+            </ul>
+          </article>
+          <article class="project">
+            <h3>Check my website or Linkedin for more detailed Projects and Skills <span class="project-date">(01/2017 - Present)</span></h3>
+            <ul class="bullets">
+              <li><a href="https://eral.me">https://eral.me</a></li>
+              <li><a href="https://www.linkedin.com/in/eric-a-6a13371aa/details/skills">https://www.linkedin.com/in/eric-a-6a13371aa/details/skills</a></li>
+            </ul>
+          </article>
+        </section>
+
+        <section class="section compact">
+          <div class="section-heading">
+            <span class="section-icon">CR</span>
+            <div class="section-line">
+              <h2 class="section-title">CERTIFICATES</h2>
+              <div class="rule"><span></span><span></span><span></span></div>
+            </div>
+          </div>
+          <div class="cert-grid">
+            <article class="certificate">
+              <h3>FULL STACK ENGINEER CERTIFICATE</h3>
+              <span class="date">(11/2023 - Present)</span>
+              <a class="small-link" href="https://tinyurl.com/4epxa9a4">Certificate Link: https://tinyurl.com/4epxa9a4</a>
+            </article>
+            <article class="certificate">
+              <h3>Check more here</h3>
+              <span class="date">(09/2020 - Present)</span>
+              <a class="small-link" href="https://www.linkedin.com/in/eric-a-6a13371aa/details/certifications">https://www.linkedin.com/in/eric-a-6a13371aa/details/certifications</a>
+            </article>
+          </div>
+        </section>
+
+        <section class="section compact teaching">
+          <div class="section-heading">
+            <span class="section-icon">TE</span>
+            <div class="section-line">
+              <h2 class="section-title">TEACHING EXPERIENCE</h2>
+              <div class="rule"><span></span><span></span><span></span></div>
+            </div>
+          </div>
+          <h3>Bachelor of Science in Information Technology 2024</h3>
+          <p class="school">Data Center College of the Philippines</p>
+          <div class="entry-meta">
+            <span class="date">08/2024 - Present</span>
+            <span class="place">Baguio City, Philippines</span>
+          </div>
+          <p class="subhead">Tasks/Achievements</p>
+          <ul class="bullets">
+            <li>Share theoretical and practical technical knowledge.</li>
+          </ul>
+        </section>
+      </div>
+      <span class="page-number">3/3</span>
+    </section>
+  </main>
+  <script>
+    (() => {
+      const storageKey = "editable-cv-html-v1";
+      const main = document.querySelector("main");
+      const toolbar = document.querySelector(".editor-toolbar");
+      const status = document.querySelector(".editor-status");
+      const importInput = document.querySelector("#cv-import");
+      const originalMain = main.innerHTML;
+      const editableSelector = [
+        ".identity h1",
+        ".role",
+        ".summary",
+        ".contact-icon",
+        ".contact-item span:last-child",
+        ".section-icon",
+        ".section-title",
+        ".tag",
+        ".entry h3",
+        ".company",
+        ".date",
+        ".place",
+        ".small-link",
+        ".subhead",
+        ".bullets li",
+        ".tech-row strong",
+        ".tech-row span",
+        ".education h3",
+        ".education .school",
+        ".project h3",
+        ".certificate h3",
+        ".teaching h3",
+        ".teaching .school",
+        ".page-number"
+      ].join(",");
+      let editing = true;
+      let saveTimer;
+
+      const saved = localStorage.getItem(storageKey);
+      if (saved) {
+        main.innerHTML = saved;
+      }
+
+      document.body.classList.add("editor-ready");
+
+      function setStatus(message) {
+        status.textContent = message;
+      }
+
+      function cleanClone(node) {
+        const clone = node.cloneNode(true);
+        clone.querySelectorAll("[data-editor-control]").forEach((control) => control.remove());
+        clone.querySelectorAll("[contenteditable]").forEach((editable) => editable.removeAttribute("contenteditable"));
+        clone.querySelectorAll("[data-editable]").forEach((editable) => editable.removeAttribute("data-editable"));
+        return clone;
+      }
+
+      function cleanMainHtml() {
+        return cleanClone(main).innerHTML.trim();
+      }
+
+      function saveNow() {
+        localStorage.setItem(storageKey, cleanMainHtml());
+        setStatus(`Saved ${new Date().toLocaleTimeString([], { hour: "2-digit", minute: "2-digit" })}`);
+      }
+
+      function scheduleSave() {
+        clearTimeout(saveTimer);
+        setStatus("Saving...");
+        saveTimer = setTimeout(saveNow, 350);
+      }
+
+      function makeButton(label, title, className, onClick) {
+        const button = document.createElement("button");
+        button.type = "button";
+        button.textContent = label;
+        button.title = title;
+        button.className = className;
+        button.dataset.editorControl = "inline";
+        button.contentEditable = "false";
+        button.addEventListener("click", (event) => {
+          event.preventDefault();
+          event.stopPropagation();
+          onClick();
+        });
+        return button;
+      }
+
+      function addActions(target, actions, className = "editor-actions") {
+        const controls = document.createElement("div");
+        controls.className = className;
+        controls.dataset.editorControl = "inline";
+        controls.contentEditable = "false";
+        actions.forEach((action) => controls.append(makeButton(action.label, action.title, action.className || "editor-mini", action.run)));
+        target.append(controls);
+      }
+
+      function addInlineAdd(target, label, onClick) {
+        target.append(makeButton(label, label, "editor-add", onClick));
+      }
+
+      function directInlineControl(target) {
+        return Array.from(target.children).find((child) => child.dataset.editorControl === "inline") || null;
+      }
+
+      function markEditable() {
+        main.querySelectorAll("[contenteditable]").forEach((node) => node.removeAttribute("contenteditable"));
+        if (!editing) return;
+        main.querySelectorAll(editableSelector).forEach((node) => {
+          if (node.closest("[data-editor-control]")) return;
+          node.contentEditable = "true";
+          node.spellcheck = true;
+          node.dataset.editable = "true";
+        });
+      }
+
+      function removeInlineControls() {
+        main.querySelectorAll('[data-editor-control="inline"]').forEach((control) => control.remove());
+      }
+
+      function refreshEditor() {
+        removeInlineControls();
+        markEditable();
+        document.body.classList.toggle("editing", editing);
+        toolbar.querySelector('[data-action="toggle-edit"]').textContent = editing ? "Edit mode on" : "Edit mode off";
+        if (!editing) return;
+        wireDynamicControls();
+      }
+
+      function duplicateNode(node) {
+        const clone = cleanClone(node);
+        node.after(clone);
+        refreshEditor();
+        scheduleSave();
+      }
+
+      function removeNode(node) {
+        node.remove();
+        refreshEditor();
+        scheduleSave();
+      }
+
+      function wireDynamicControls() {
+        main.querySelectorAll(".section").forEach((section) => {
+          addActions(section, [
+            { label: "+", title: "Duplicate section", run: () => duplicateNode(section) },
+            { label: "x", title: "Remove section", className: "editor-mini danger", run: () => removeNode(section) }
+          ]);
+        });
+
+        main.querySelectorAll(".tag").forEach((tag) => {
+          addActions(tag, [
+            { label: "x", title: "Remove skill", className: "editor-mini danger", run: () => removeNode(tag) }
+          ], "editor-row-actions");
+        });
+
+        main.querySelectorAll(".tags").forEach((tags) => {
+          addInlineAdd(tags, "+ Skill", () => {
+            const tag = document.createElement("span");
+            tag.className = "tag";
+            tag.textContent = "New Skill";
+            tags.insertBefore(tag, directInlineControl(tags));
+            refreshEditor();
+            scheduleSave();
+          });
+        });
+
+        main.querySelectorAll(".bullets").forEach((list) => {
+          list.querySelectorAll(":scope > li").forEach((item) => {
+            addActions(item, [
+              { label: "+ Sub", title: "Add nested bullet", className: "editor-mini wide", run: () => {
+                let nested = item.querySelector(":scope > .nested-bullets");
+                if (!nested) {
+                  nested = document.createElement("ul");
+                  nested.className = "bullets nested-bullets";
+                  item.append(nested);
+                }
+                const nestedItem = document.createElement("li");
+                nestedItem.textContent = "New nested bullet";
+                nested.append(nestedItem);
+                refreshEditor();
+                scheduleSave();
+              } },
+              { label: "x", title: "Remove bullet", className: "editor-mini danger", run: () => removeNode(item) }
+            ], "editor-row-actions");
+          });
+          addInlineAdd(list, "+ Bullet", () => {
+            const item = document.createElement("li");
+            item.textContent = "New bullet";
+            list.insertBefore(item, directInlineControl(list));
+            refreshEditor();
+            scheduleSave();
+          });
+        });
+
+        main.querySelectorAll(".entry, .project, .certificate, .tech-row").forEach((block) => {
+          addActions(block, [
+            { label: "+", title: "Duplicate item", run: () => duplicateNode(block) },
+            { label: "x", title: "Remove item", className: "editor-mini danger", run: () => removeNode(block) }
+          ]);
+        });
+
+        main.querySelectorAll(".tech-grid").forEach((grid) => {
+          addInlineAdd(grid, "+ Skill row", () => {
+            const row = document.createElement("div");
+            row.className = "tech-row";
+            row.innerHTML = "<strong>Skill Area</strong><span>Tools, languages, and details</span>";
+            grid.insertBefore(row, directInlineControl(grid));
+            refreshEditor();
+            scheduleSave();
+          });
+        });
+
+        main.querySelectorAll(".cert-grid").forEach((grid) => {
+          addInlineAdd(grid, "+ Certificate", () => {
+            const cert = document.createElement("article");
+            cert.className = "certificate";
+            cert.innerHTML = '<h3>New Certificate</h3><span class="date">(Date - Date)</span><a class="small-link" href="#">Certificate Link</a>';
+            grid.insertBefore(cert, directInlineControl(grid));
+            refreshEditor();
+            scheduleSave();
+          });
+        });
+
+        main.querySelectorAll(".contact-card").forEach((card) => {
+          addInlineAdd(card, "+ Contact", () => {
+            const contact = document.createElement("a");
+            contact.className = "contact-item";
+            contact.href = "#";
+            contact.innerHTML = '<span class="contact-icon">new</span><span>New contact</span>';
+            card.insertBefore(contact, directInlineControl(card));
+            refreshEditor();
+            scheduleSave();
+          });
+        });
+
+        main.querySelectorAll(".contact-item").forEach((item) => {
+          addActions(item, [
+            { label: "+", title: "Duplicate contact", run: () => duplicateNode(item) },
+            { label: "x", title: "Remove contact", className: "editor-mini danger", run: () => removeNode(item) }
+          ], "editor-row-actions");
+        });
+      }
+
+      function exportJson() {
+        const payload = {
+          version: 1,
+          savedAt: new Date().toISOString(),
+          html: cleanMainHtml()
+        };
+        const blob = new Blob([JSON.stringify(payload, null, 2)], { type: "application/json" });
+        const url = URL.createObjectURL(blob);
+        const link = document.createElement("a");
+        link.href = url;
+        link.download = "cv-content.json";
+        document.body.append(link);
+        link.click();
+        link.remove();
+        URL.revokeObjectURL(url);
+        setStatus("Exported JSON");
+      }
+
+      function importJson(file) {
+        const reader = new FileReader();
+        reader.addEventListener("load", () => {
+          try {
+            const payload = JSON.parse(String(reader.result));
+            if (!payload.html || typeof payload.html !== "string") {
+              throw new Error("Missing html field");
+            }
+            main.innerHTML = payload.html;
+            refreshEditor();
+            saveNow();
+            setStatus("Imported JSON");
+          } catch (error) {
+            setStatus("Import failed");
+            alert(`Could not import JSON: ${error.message}`);
+          }
+        });
+        reader.readAsText(file);
+      }
+
+      toolbar.addEventListener("click", (event) => {
+        const action = event.target.closest("[data-action]")?.dataset.action;
+        if (!action) return;
+        if (action === "toggle-edit") {
+          editing = !editing;
+          refreshEditor();
+          setStatus(editing ? "Editing enabled" : "Editing disabled");
+        }
+        if (action === "save") saveNow();
+        if (action === "export") exportJson();
+        if (action === "print") window.print();
+        if (action === "reset" && confirm("Reset the CV to the original PDF implementation? This clears saved edits.")) {
+          localStorage.removeItem(storageKey);
+          main.innerHTML = originalMain;
+          refreshEditor();
+          setStatus("Reset complete");
+        }
+      });
+
+      importInput.addEventListener("change", () => {
+        const [file] = importInput.files;
+        if (file) importJson(file);
+        importInput.value = "";
+      });
+
+      main.addEventListener("input", (event) => {
+        if (event.target.closest("[data-editor-control]")) return;
+        scheduleSave();
+      });
+
+      main.addEventListener("click", (event) => {
+        if (!editing) return;
+        const avatar = event.target.closest(".avatar");
+        if (avatar) {
+          const next = prompt("Image path or URL", avatar.getAttribute("src") || "");
+          if (next) {
+            avatar.setAttribute("src", next.trim());
+            scheduleSave();
+          }
+        }
+        if (event.target.closest("a[href]")) {
+          event.preventDefault();
+        }
+      });
+
+      main.addEventListener("dblclick", (event) => {
+        if (!editing) return;
+        const link = event.target.closest("a[href]");
+        if (!link) return;
+        event.preventDefault();
+        const oldHref = link.getAttribute("href") || "";
+        const nextHref = prompt("Link URL", oldHref);
+        if (!nextHref) return;
+        const visibleText = link.textContent.trim();
+        link.setAttribute("href", nextHref.trim());
+        if (visibleText === oldHref || visibleText === "#" || visibleText === "") {
+          link.textContent = nextHref.trim();
+        }
+        refreshEditor();
+        scheduleSave();
+      });
+
+      refreshEditor();
+      setStatus(saved ? "Loaded saved edits" : "Ready");
+    })();
+  </script>
+</body>
+</html>
