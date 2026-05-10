@@ -1,0 +1,3 @@
+[submodule "Smith"]
+	path = Smith
+	url = git@github.com:eralme/Smith.git
